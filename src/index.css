@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.col {
+  @apply flex flex-col;
+}
+
+.row {
+  @apply flex flex-row;
+}

@@ -1,77 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import HomeLayout from "./layouts/home.layout";
+import HomePage from "./pages/home.page";
 
 function App() {
-  const [weatherData, setWeatherData] = useState({})
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [lat, setLat] = useState(null)
-  const [lon, setLon] = useState(null)
-  const [dailyForecast, setDailyForecast] = useState({})
-
-  const apiKey = "04ab6de5c13b1a08e45eb51fd7a52b98"
-  const location = "Kabul"
-  useEffect(() => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`
-    )
-      .then((response) => {
-        return response.json()
-      })
-      .then((data) => {
-        setWeatherData(data)
-        setLat(data.coord.lat)
-        setLon(data.coord.lon)
-        console.log({ data })
-      })
-  }, [])
-  useEffect(() => {
-    if (lat && lon) {
-      fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data)
-          setDailyForecast(data)
-          setLoading(false)
-        })
-    }
-  }, [lat, lon])
-
   return (
     <>
-      <h1>
-        <center>Weather Data</center>
-      </h1>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <ul>
-          <li>Location: {location}</li>
-          {weatherData && <li>Today Temp: {weatherData.main.temp}</li>}
-          {lat && lon && (
-            <li>
-              Latitude: {lat}, Longitude: {lon}
-            </li>
-          )}
-          {dailyForecast.list && (
-            <>
-              {dailyForecast.list.map((index) => {
-                return (
-                  <li key={index.dt}>
-                    {" "}
-                    <strong>Date and Time:</strong>
-                    {index.dt_txt} /<strong>Weather:</strong> {index.main.temp}
-                  </li>
-                )
-              })}
-              {/* {dailyForecast.list[0].dt_txt}: {dailyForecast.list[0].main.temp} */}
-            </>
-          )}
-        </ul>
-      )}
+      <HomePage />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
