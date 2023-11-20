@@ -1,8 +1,10 @@
+@import url("../lib/utils.css");
+
 .home-layout {
-  @apply w-screen h-screen;
+  @apply w-screen h-screen overflow-x-hidden;
 
   & .navbar {
-    @apply w-full px-5 py-3 flex justify-between;
+    @apply w-full px-5 py-3 flex justify-between max-sm:animate-[slide-in-from-top_ease-in_500ms] sm:animate-[fade-in_ease-in_750ms];
 
     > .brand {
       @apply font-bold text-2xl;
@@ -25,6 +27,8 @@
 
         > .time {
           @apply w-fit text-5xl w-max;
+          animation: slide-in-from-left ease-in 500ms;
+
           > span {
             @apply text-3xl;
           }
@@ -32,15 +36,18 @@
 
         > .date {
           @apply text-3xl w-max;
+          animation: slide-in-from-left ease-in 750ms both;
         }
 
         > input {
           @apply px-3 py-3 w-full bg-slate-200 rounded-xl;
+          animation: slide-in-from-left ease-in 1000ms both;
         }
       }
 
       > .map {
         @apply w-full h-full bg-slate-700 rounded-xl;
+        animation: slide-in-from-left ease-in 1250ms both;
       }
     }
 
@@ -48,14 +55,28 @@
       @apply w-full h-full flex flex-col gap-5 px-5 py-3;
 
       > .forecast {
-        @apply w-full h-full bg-slate-200 rounded-xl flex justify-center items-center;
+        @apply w-full h-full flex flex-col gap-5 justify-around;
+
+        > .hourly, .daily {
+          @apply w-full h-full bg-slate-200 rounded-xl flex justify-center items-center max-h-[25rem];
+        }
+
+        > .hourly {
+          animation: slide-in-from-right ease-in 500ms;
+        }
+
+        > .daily {
+          animation: slide-in-from-right ease-in 750ms;
+        }
       }
 
       > .weather {
-        @apply flex flex-col items-end w-full;
+        @apply flex flex-col items-end justify-end w-full;
 
         > .head {
           @apply flex justify-end items-end gap-5;
+          animation: slide-in-from-right ease-in 1000ms;
+
           > .temp {
             @apply flex justify-start items-start text-7xl;
             > span {
@@ -68,18 +89,24 @@
         }
         > .description {
           @apply text-3xl;
+          animation: slide-in-from-right ease-in 1250ms;
         }
       }
     }
   }
   & .mobile-layout {
-    @apply sm:hidden h-full w-full;
+    @apply h-full sm:hidden w-full flex flex-col;
 
-    > .container {
+     .container {
       @apply h-full w-full px-5 py-3 flex flex-col gap-5;
+
+      &.flat {
+        @apply p-0 mb-5;
+      }
 
       > input {
         @apply px-3 py-1 w-full bg-slate-200 rounded-xl;
+        animation: slide-in-from-top ease-in 750ms;
       }
 
       > .weather {
@@ -87,29 +114,44 @@
 
         > .temp {
           @apply flex justify-start items-start text-7xl;
+          animation: fade-in ease-in 500ms;
+
           > span {
             @apply text-3xl translate-y-[0.5rem];
           }
         }
         > .condition {
           @apply text-3xl uppercase font-bold;
+          animation: fade-in ease-in 750ms;
         }
         > .description {
           @apply text-3xl;
+          animation: fade-in ease-in 1000ms;
         }
         > .local-details {
           @apply flex gap-3;
+          animation: fade-in ease-in 1250ms;
         }
       }
       > .forecast {
         @apply w-full h-full bg-slate-200 rounded-xl flex justify-center items-center;
+        &.hourly {
+          animation: slide-in-from-left ease-in 500ms;
+        }
+        &.daily {
+          animation: slide-in-from-right ease-in 750ms;
+        }
       }
-      > .map {
-        @apply w-full h-full bg-slate-700 rounded-xl;
-      }
+    > .map {
+        @apply w-full bg-slate-700 h-1/5;
+        animation: slide-in-from-bottom ease-in 1000ms;
+    }  
     }
+    
+    
     > .links {
-      @apply flex flex-col gap-1 text-white bg-slate-700 underline justify-between items-end px-5 py-3;
+      @apply flex flex-col gap-1 text-white bg-slate-700 underline justify-between items-center px-5 py-3;
+      animation: slide-in-from-bottom ease-in 1250ms;
     }
   }
 }

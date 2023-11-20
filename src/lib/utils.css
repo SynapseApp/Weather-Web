@@ -1,0 +1,41 @@
+@keyframes fade-in {
+  0% {
+    @apply opacity-0;
+  }
+}
+
+@keyframes slide-in-from-left {
+  0% {
+    @apply relative -left-[2rem] opacity-0;
+  }
+  100% {
+    @apply relative -left-0 opacity-100;
+  }
+}
+
+@keyframes slide-in-from-right {
+  0% {
+    @apply relative left-[2rem] opacity-0;
+  }
+  100% {
+    @apply relative left-0 opacity-100;
+  }
+}
+
+@keyframes slide-in-from-top {
+  0% {
+    @apply relative -top-[2rem] opacity-0;
+  }
+  100% {
+    @apply relative top-0 opacity-100;
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  0% {
+    @apply relative top-[2rem] opacity-0;
+  }
+  100% {
+    @apply relative top-0 opacity-100;
+  }
+}

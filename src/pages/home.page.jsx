@@ -19,7 +19,6 @@ export default function HomePage() {
 
   const DailyForecast = () => <Forecast title="Daily" data={[]} />;
   const HourlyForecast = () => <Forecast title="Hourly" data={[]} />;
-  const RenderedWeather = () => <Weather />;
 
   return (
     <HomeLayout

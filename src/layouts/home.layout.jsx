@@ -50,11 +50,13 @@ export default function HomeLayout(props) {
               </div>
             </div>
             <div className="right-section">
-              <div className="hourly forecast">
-                <HourlyForecast />
-              </div>
-              <div className="daily forecast">
-                <DailyForecast />
+              <div className="forecast">
+                <div className="hourly">
+                  <HourlyForecast />
+                </div>
+                <div className="daily">
+                  <DailyForecast />
+                </div>
               </div>
               <div className="weather">
                 <div className="head">
@@ -71,33 +73,36 @@ export default function HomeLayout(props) {
 
           {/* Mobile Layout */}
           <div className="mobile-layout">
-            <div className="container">
-              <Input />
-              <div className="weather">
-                <div className="temp">
-                  {temp}
-                  <span>°C</span>
-                </div>
-                <div className="condition">{condition}</div>
-                <div className="description">{description}</div>
-                <div className="local-details">
-                  <div className="date">
-                    {date.substring(0, 2)}
-                    <sup>{date.substring(2, 4)}</sup> {date.substring(4)}
+            <div className="container flat">
+              <div className="container">
+                <Input />
+                <div className="weather">
+                  <div className="temp">
+                    {temp}
+                    <span>°C</span>
                   </div>
-                  •
-                  <div className="time">
-                    {time.substring(0, time.length - 2)}{" "}
-                    <span>{time.substring(time.length - 3)}</span>
+                  <div className="condition">{condition}</div>
+                  <div className="description">{description}</div>
+                  <div className="local-details">
+                    <div className="date">
+                      {date.substring(0, 2)}
+                      <sup>{date.substring(2, 4)}</sup> {date.substring(4)}
+                    </div>
+                    •
+                    <div className="time">
+                      {time.substring(0, time.length - 2)}{" "}
+                      <span>{time.substring(time.length - 3)}</span>
+                    </div>
                   </div>
                 </div>
+                <div className="hourly forecast">
+                  <HourlyForecast />
+                </div>
+                <div className="daily forecast">
+                  <DailyForecast />
+                </div>
               </div>
-              <div className="hourly forecast">
-                <HourlyForecast />
-              </div>
-              <div className="daily forecast">
-                <DailyForecast />
-              </div>
+
               <div className="map">
                 <Map />
               </div>
