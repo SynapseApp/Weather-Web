@@ -1,0 +1,35 @@
+.forecast-title {
+  text-align: left;
+  /* margin: 10px 0 10px 20px; */
+}
+
+.forecast-container {
+  display: flex;
+  overflow-x: scroll;
+  /* background-color: #f0f0f0; */
+  gap: 1rem;
+  padding: 0.5rem 0;
+  height: 100%;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    height: 2.5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: gray;
+  }
+}
+
+.forecast-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  aspect-ratio: 3/4;
+  /* height: 100%; */
+  /* border: 1px solid #ccc; */
+  background-color: white;
+  border-radius: 1rem;
+  /* margin: 10px; */
+  padding: 10px;
+  text-align: center;
+}

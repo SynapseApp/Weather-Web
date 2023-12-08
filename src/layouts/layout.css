@@ -1,0 +1,146 @@
+.home-layout {
+  .glassmorphic {
+    background: rgba(255, 255, 255, 0.43);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.5px);
+  }
+
+  @apply w-screen h-screen font-montserrat;
+
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2777485994397759) 72%, rgba(255, 255, 255, 0.6755077030812324) 87%), url('https://cdn.pixabay.com/photo/2018/03/23/16/55/sunset-3254253_1280.jpg') no-repeat center center/cover;
+
+  & .navbar {
+    @apply w-full px-10 pb-3 pt-6 flex justify-between;
+
+    > .brand {
+      @apply font-bold text-2xl;
+    }
+
+    > .links {
+      @apply flex gap-10 justify-between items-center
+      max-sm:hidden font-regular;
+
+      .active {
+        @apply border-b-2 border-b-black font-bold;
+      }
+    }
+  }
+
+  & .desktop-layout {
+    @apply max-sm:hidden h-full w-full;
+
+    & .left-section {
+      @apply ps-10 pe-5 pb-5 h-full flex flex-col gap-5 w-max min-w-[30%];
+
+      > .local-details {
+        @apply flex flex-col gap-1 text-center;
+
+        > .time {
+          @apply w-fit text-5xl w-max font-bold self-center;
+          > span {
+            @apply text-3xl;
+          }
+        }
+
+        > .date {
+          @apply text-3xl w-max self-center mb-3 font-medium;
+        }
+
+        > .search-input > input {
+          @apply px-3 py-3 w-full rounded-xl;
+        }
+      }
+
+      > .map {
+        @apply w-full h-full rounded-xl;
+      }
+    }
+
+    & .right-section {
+      @apply w-full h-full flex flex-col gap-5 ps-5 pe-10 py-5 max-w-[70%];
+
+      > .forecast {
+        @apply w-full h-full rounded-xl flex justify-start items-start;
+      }
+      > .weather {
+        @apply flex flex-col items-end w-full;
+
+        > .head {
+          @apply flex justify-end items-end gap-5;
+          > .temp {
+            @apply flex justify-start items-start text-7xl font-bold;
+            > span {
+              @apply text-3xl translate-y-[0.5rem];
+            }
+          }
+          > .condition {
+            @apply text-3xl uppercase font-black;
+          }
+        }
+        > .description {
+          @apply text-3xl font-medium;
+        }
+      }
+    }
+  }
+  & .mobile-layout {
+    @apply sm:hidden h-full w-full;
+
+    > .container {
+      @apply h-full w-full px-5 py-3 flex flex-col gap-5;
+
+      > .search-input > input {
+        @apply px-3 py-3 w-full rounded-xl;
+      }
+
+      > .weather {
+        @apply flex flex-col items-center justify-center w-full;
+
+        > .temp {
+          @apply flex justify-start items-start text-8xl font-regular;
+          > span {
+            @apply text-3xl translate-y-[0.5rem];
+          }
+        }
+        > .condition {
+          @apply text-5xl uppercase font-bold;
+        }
+        > .description {
+          @apply text-5xl font-medium;
+        }
+        > .local-details {
+          @apply flex gap-3 font-medium text-2xl;
+        }
+      }
+      > .forecast {
+        @apply w-full h-full rounded-xl flex justify-center items-center;
+      }
+      > .map {
+        @apply w-full h-full rounded-xl;
+      }
+    }
+    > .links {
+      @apply flex flex-col gap-1 text-white bg-slate-700 underline justify-between items-center px-5 py-3;
+    }
+  }
+}
+
+#dark {
+  & .home-layout {
+    .glassmorphic {
+      background: rgba(0, 0, 0, 0.43);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5.5px);
+    }
+
+    @apply text-white;
+
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.2777485994397759) 72%, rgba(0, 0, 0, 0.6755077030812324) 87%), url('https://cdn.pixabay.com/photo/2018/03/23/16/55/sunset-3254253_1280.jpg') no-repeat center center/cover;
+
+    .active {
+      @apply border-b-white;
+    }
+  }
+}
