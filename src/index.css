@@ -9,3 +9,8 @@
 .row {
   @apply flex flex-row;
 }
+
+.body {
+  background: url("https://cdn.pixabay.com/photo/2018/03/23/16/55/sunset-3254253_1280.jpg")
+    no-repeat center center/cover;
+}
