@@ -1,10 +1,10 @@
-import './layout.css';
-import PropTypes from 'prop-types';
-import { createContext, useState } from 'react';
-import Toggler from '../Components/Toggler';
-import Input from '../Components/SearchInput';
+import "./layout.css"
+import PropTypes from "prop-types"
+import { createContext, useState } from "react"
+import Toggler from "../Components/Toggler"
+import Input from "../Components/SearchInput"
 
-export const ThemeContext = createContext(null);
+export const ThemeContext = createContext(null)
 
 export default function HomeLayout(props) {
   const {
@@ -15,35 +15,41 @@ export default function HomeLayout(props) {
     HourlyForecast, // a react component for hourly forecast
     DailyForecast, // a react component for daily forecast
     weatherDetails,
-  } = props;
-  const [activeLink, setActiveLink] = useState(Object.keys(links)[0]);
+  } = props
+  const [activeLink, setActiveLink] = useState(Object.keys(links)[0])
 
   const RenderedLinks = () => (
     <>
       {Object.keys(links).map((link, key) => (
-        <a href={links[link]} key={key} className={activeLink === link ? 'active' : ''} onMouseEnter={() => handleMouseEnter(link)} onMouseLeave={handleMouseLeave}>
+        <a
+          href={links[link]}
+          key={key}
+          className={activeLink === link ? "active" : ""}
+          onMouseEnter={() => handleMouseEnter(link)}
+          onMouseLeave={handleMouseLeave}
+        >
           {link}
         </a>
       ))}
     </>
-  );
+  )
 
   const handleMouseLeave = () => {
-    setActiveLink(null);
-  };
+    setActiveLink(null)
+  }
 
   const handleMouseEnter = (link) => {
-    setActiveLink(link);
-  };
+    setActiveLink(link)
+  }
 
-  const { time, date } = localDetails;
-  const { temp, condition, description } = weatherDetails;
+  const { time, date } = localDetails
+  const { temp, condition, description } = weatherDetails
 
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState("dark")
 
   const toggleTheme = () => {
-    setTheme((cur) => (cur === 'light' ? 'dark' : 'light'));
-  };
+    setTheme((cur) => (cur === "light" ? "dark" : "light"))
+  }
 
   return (
     <>
@@ -65,7 +71,8 @@ export default function HomeLayout(props) {
                 <div className="left-section">
                   <div className="local-details">
                     <div className="time">
-                      {time.substring(0, time.length - 2)} <span>{time.substring(time.length - 3)}</span>
+                      {time.substring(0, time.length - 2)}{" "}
+                      <span>{time.substring(time.length - 3)}</span>
                     </div>
                     <div className="date">
                       {date.substring(0, 2)}
@@ -114,7 +121,8 @@ export default function HomeLayout(props) {
                       </div>
                       •
                       <div className="time">
-                        {time.substring(0, time.length - 2)} <span>{time.substring(time.length - 3)}</span>
+                        {time.substring(0, time.length - 2)}{" "}
+                        <span>{time.substring(time.length - 3)}</span>
                       </div>
                     </div>
                   </div>
@@ -125,7 +133,7 @@ export default function HomeLayout(props) {
                     <DailyForecast />
                   </div>
                   <div className="map glassmorphic">
-                    <Map />
+                    <Map location="kabul" />
                   </div>
                 </div>
                 <div className="links">
@@ -137,7 +145,7 @@ export default function HomeLayout(props) {
         </div>
       </ThemeContext.Provider>
     </>
-  );
+  )
 }
 
 HomeLayout.propTypes = {
@@ -149,4 +157,4 @@ HomeLayout.propTypes = {
   HourlyForecast: PropTypes.elementType.isRequired, // Ensure HourlyForecast is a required React element
   DailyForecast: PropTypes.elementType.isRequired, // Ensure DailyForecast is a required React element
   weatherDetails: PropTypes.object.isRequired, // Ensure weatherDetails is a required object
-};
+}
