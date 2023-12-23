@@ -19,6 +19,7 @@ function Map() {
           (error) => {
             console.error("Error getting user's location:", error)
             setPosition(defaultPosition)
+            setMapInitialized(true)
           }
         )
       } catch (error) {
@@ -28,11 +29,13 @@ function Map() {
     }
 
     fetchData()
-  }, []) // Run this effect only once on component mount
+  }, [])
 
-  // Set mapInitialized to true once the position is updated
   useEffect(() => {
-    setMapInitialized(true)
+    //because the map should focus on the new location
+    if (position != defaultPosition) {
+      setMapInitialized(true)
+    }
   }, [position])
 
   return (

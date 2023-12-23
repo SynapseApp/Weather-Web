@@ -1,20 +1,19 @@
-import { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
-
-import './input.css';
+import { useState } from "react"
+import { FaSearch } from "react-icons/fa"
+import "./input.css"
 
 const SearchInput = () => {
   // State to manage the input value
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("")
 
   // Event handler for input changes
   const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+    setInputValue(event.target.value)
+  }
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-  };
+    event.preventDefault()
+  }
 
   return (
     <div className="search-input ">
@@ -30,7 +29,7 @@ const SearchInput = () => {
         <FaSearch />
       </span>
     </div>
-  );
-};
+  )
+}
 
-export default SearchInput;
+export default SearchInput
