@@ -7,3 +7,8 @@
   top: 15px;
   right: 10px;
 }
+.suggestion {
+  z-index: 9999;
+  background-color: aliceblue;
+  color: black;
+}

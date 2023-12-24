@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import "./Map.css"
 
-function Map() {
+function Map({ location }) {
   const defaultPosition = [51.505, -0.09]
   const [position, setPosition] = useState(defaultPosition)
   const [mapInitialized, setMapInitialized] = useState(false)
@@ -30,13 +30,12 @@ function Map() {
 
     fetchData()
   }, [])
-
   useEffect(() => {
-    //because the map should focus on the new location
-    if (position != defaultPosition) {
-      setMapInitialized(true)
-    }
-  }, [position])
+    // Update position when location prop changes
+    setMapInitialized(true)
+    setPosition(location || defaultPosition)
+    console.log("this was called")
+  }, [location])
 
   return (
     <div className="leaflet-container">

@@ -2,7 +2,7 @@ import "./layout.css"
 import PropTypes from "prop-types"
 import { createContext, useState } from "react"
 import Toggler from "../Components/Toggler"
-import Input from "../Components/SearchInput"
+import SearchInput from "../Components/SearchInput"
 
 export const ThemeContext = createContext(null)
 
@@ -50,6 +50,12 @@ export default function HomeLayout(props) {
   const toggleTheme = () => {
     setTheme((cur) => (cur === "light" ? "dark" : "light"))
   }
+  const [position, setPosition] = useState([])
+  const handleSelectLocation = (data) => {
+    // Implement logic to handle the map data in the parent component
+    console.log("Latitude and Longitude Received in Parent:", data)
+    setPosition(data)
+  }
 
   return (
     <>
@@ -78,10 +84,10 @@ export default function HomeLayout(props) {
                       {date.substring(0, 2)}
                       <sup>{date.substring(2, 4)}</sup> {date.substring(4)}
                     </div>
-                    <Input />
+                    <SearchInput onSelectLocation={handleSelectLocation} />
                   </div>
                   <div className="map glassmorphic">
-                    <Map />
+                    <Map location={setPosition} />
                   </div>
                 </div>
                 <div className="right-section">
@@ -106,7 +112,7 @@ export default function HomeLayout(props) {
               {/* Mobile Layout */}
               <div className="mobile-layout">
                 <div className="container">
-                  <Input />
+                  <SearchInput />
                   <div className="weather">
                     <div className="temp">
                       {temp}
