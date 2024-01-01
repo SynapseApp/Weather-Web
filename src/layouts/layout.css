@@ -8,7 +8,13 @@
 
   @apply w-screen h-screen font-montserrat;
 
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.2777485994397759) 72%, rgba(255, 255, 255, 0.6755077030812324) 87%), url('https://cdn.pixabay.com/photo/2018/03/23/16/55/sunset-3254253_1280.jpg') no-repeat center center/cover;
+  background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.2777485994397759) 72%,
+      rgba(255, 255, 255, 0.6755077030812324) 87%
+    ),
+    url("https://cdn.pixabay.com/photo/2018/03/23/16/55/sunset-3254253_1280.jpg")
+      no-repeat center center/cover;
 
   & .navbar {
     @apply w-full px-10 pb-3 pt-6 flex justify-between;
@@ -28,7 +34,7 @@
   }
 
   & .desktop-layout {
-    @apply max-sm:hidden h-full w-full;
+    @apply max-lg:hidden h-full w-full;
 
     & .left-section {
       @apply ps-10 pe-5 pb-5 h-full flex flex-col gap-5 w-max min-w-[30%];
@@ -85,9 +91,9 @@
     }
   }
   & .mobile-layout {
-    @apply sm:hidden h-full w-full;
+    @apply lg:hidden h-full w-full flex flex-col;
 
-    > .container {
+    > .box {
       @apply h-full w-full px-5 py-3 flex flex-col gap-5;
 
       > .search-input > input {
@@ -98,19 +104,19 @@
         @apply flex flex-col items-center justify-center w-full;
 
         > .temp {
-          @apply flex justify-start items-start text-8xl font-regular;
+          @apply flex justify-start items-start text-5xl font-regular;
           > span {
             @apply text-3xl translate-y-[0.5rem];
           }
         }
         > .condition {
-          @apply text-5xl uppercase font-bold;
+          @apply text-2xl uppercase font-bold;
         }
         > .description {
-          @apply text-5xl font-medium;
+          @apply text-2xl font-medium;
         }
         > .local-details {
-          @apply flex gap-3 font-medium text-2xl;
+          @apply flex gap-3 font-medium text-lg;
         }
       }
       > .forecast {
@@ -137,7 +143,13 @@
 
     @apply text-white;
 
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.2777485994397759) 72%, rgba(0, 0, 0, 0.6755077030812324) 87%), url('https://cdn.pixabay.com/photo/2018/03/23/16/55/sunset-3254253_1280.jpg') no-repeat center center/cover;
+    background: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 0.2777485994397759) 72%,
+        rgba(0, 0, 0, 0.6755077030812324) 87%
+      ),
+      url("https://cdn.pixabay.com/photo/2018/03/23/16/55/sunset-3254253_1280.jpg")
+        no-repeat center center/cover;
 
     .active {
       @apply border-b-white;
